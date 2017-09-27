@@ -30,9 +30,9 @@ Please note that when using buienradar data, ask permission here: https://www.bu
 This Application is not available through Nuget can only be downloaded from GitHub. 
 
 - By directly loading fetching the Archive from GitHub: 
-  1. Go to [https://github.com/thijse/DSPhotoSorter](https://github.com/thijse/DSPhotoSorter)
+  1. Go to [https://github.com/thijse/Buienradar](https://github.com/thijse/Buienradar)
   2. Click the DOWNLOAD ZIP button in the panel on the
-  3. Optionally rename the uncompressed folder **DSPhotoSorter-master** to **DSPhotoSorter**.
+  3. Optionally rename the uncompressed folder **Buienradar-master** to **Buienradar**.
 
 - By downloading a release
   1. Go to releases
