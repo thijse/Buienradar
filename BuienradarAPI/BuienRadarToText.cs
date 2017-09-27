@@ -1,4 +1,23 @@
-﻿using System;
+﻿#region BuienRadarAPI - MIT - (c) 2017 Thijs Elenbaas.
+/*
+  DS Photosorter - tool that processes photos captured with Synology DS Photo
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  Copyright 2017 - Thijs Elenbaas
+*/
+#endregion
+
+using System;
 using System.Collections.Generic;
 
 namespace Buienradar
@@ -14,24 +33,20 @@ namespace Buienradar
         {
             var description = "";
             if (rainPeriods.Count == 0)
-            {
                 return "Het gaat de komende twee uur niet regenen.";
-            }
             var duration = rainPeriods[0].Duration;
             var durationText = duration <= TimeSpan.FromMinutes(10)
                 ? "heel even"
-                : duration <= TimeSpan.FromMinutes(30) ? "een poosje" : "een flinke tijd";
+                : duration <= TimeSpan.FromMinutes(30)
+                    ? "een poosje"
+                    : "een flinke tijd";
             description = "Het gaat " + TimeInFuture(rainPeriods[0].StartTime - DateTime.Now) + " " + durationText +
                           " " + RainIntensityToText(rainPeriods[0]) + ".";
 
-            if ((rainPeriods.Count == 1) && rainPeriods[0].EndTime < DateTime.Now + TimeSpan.FromHours(1))
-            {
+            if (rainPeriods.Count == 1 && rainPeriods[0].EndTime < DateTime.Now + TimeSpan.FromHours(1))
                 description += " Daarna blijft het een tijd droog";
-            }
             if (rainPeriods.Count == 2)
-            {
                 description += " Later gaat het nog een keer " + RainIntensityToText(rainPeriods[1]) + ".";
-            }
             return description;
         }
 
@@ -77,17 +92,15 @@ namespace Buienradar
         private static string TimeInFuture(TimeSpan timeSpan)
         {
             var minutes = timeSpan.Minutes;
-            var minutesDiv = minutes/5.0;
+            var minutesDiv = minutes / 5.0;
             var minutesDivRound = (int) Math.Round(minutesDiv);
-            var minutesRound = minutesDivRound*5;
+            var minutesRound = minutesDivRound * 5;
             timeSpan = new TimeSpan(timeSpan.Hours, minutesRound, 0);
 
             if (timeSpan <= TimeSpan.Zero)
-            {
                 return "nu";
-            }
 
-            return (minutesRound != minutes && (timeSpan < TimeSpan.FromMinutes(15)) ? "over ongeveer " : "over ") +
+            return (minutesRound != minutes && timeSpan < TimeSpan.FromMinutes(15) ? "over ongeveer " : "over ") +
                    ToText(timeSpan);
         }
 
@@ -100,7 +113,6 @@ namespace Buienradar
                 {
                     description = timeSpan.Hours + " uur ";
                     if (timeSpan.Minutes > 0)
-                    {
                         switch (timeSpan.Minutes)
                         {
                             case 15:
@@ -108,13 +120,9 @@ namespace Buienradar
                                 break;
                             case 30:
                                 if (timeSpan.Hours == 1)
-                                {
                                     description = " anderhalf uur";
-                                }
                                 else
-                                {
                                     description = timeSpan.Hours + " en een half uur";
-                                }
                                 break;
                             case 45:
                                 description += " en drie kwartier";
@@ -123,18 +131,13 @@ namespace Buienradar
                                 description += " en " + timeSpan.Minutes + " minuten";
                                 break;
                         }
-                    }
                 }
                 else
                 {
                     if (timeSpan.Minutes > 0)
-                    {
                         description = timeSpan.Minutes + " minuten";
-                    }
                     else
-                    {
                         description = "";
-                    }
                 }
             }
             else
@@ -143,24 +146,16 @@ namespace Buienradar
                 {
                     description = timeSpan.Hours + " uur ";
                     if (timeSpan.Minutes > 0)
-                    {
                         description += ", " + timeSpan.Minutes + " minuten en " + timeSpan.Seconds + " seconden";
-                    }
                     else
-                    {
                         description += " en " + timeSpan.Seconds + " seconden";
-                    }
                 }
                 else
                 {
                     if (timeSpan.Minutes > 0)
-                    {
                         description = timeSpan.Minutes + " minuten en " + timeSpan.Seconds + " seconden";
-                    }
                     else
-                    {
                         description = timeSpan.Seconds + " seconden";
-                    }
                 }
             }
             return description;

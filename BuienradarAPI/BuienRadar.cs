@@ -1,4 +1,23 @@
-﻿using System;
+﻿#region BuienRadarAPI - MIT - (c) 2017 Thijs Elenbaas.
+/*
+  DS Photosorter - tool that processes photos captured with Synology DS Photo
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  Copyright 2017 - Thijs Elenbaas
+*/
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -16,10 +35,9 @@ namespace BuienRadar
         public DateTime Time { get; set; }
         public int RainfallIndex { get; set; }
 
-        public double RainfallIndexmm
-        {
-            get { return RainfallIndex == 0 ? 0 : Math.Pow(10.0, (RainfallIndex - 108.8805792)/73.67120307); }
-        }
+        public double RainfallIndexmm => RainfallIndex == 0
+            ? 0
+            : Math.Pow(10.0, (RainfallIndex - 108.8805792) / 73.67120307);
     }
 
     public class BuienRadar
@@ -74,6 +92,35 @@ namespace BuienRadar
             return data;
         }
 
+
+        /// <summary>
+        /// Returns how far in the future the rainfall is predicted
+        /// </summary>
+        /// <returns>Timespan of prediction information</returns>
+        public TimeSpan DataUntil()
+        {
+            PrunePrediction();
+            return TimeSpan.FromMinutes(5 * RainfallPrediction.Count);
+        }
+
+        /// <summary>
+        /// Indicates if rainfall predictions are known beyond 30 minutes in the future
+        /// </summary>
+        /// <returns>True if prediction information time > 30 min </returns>
+        public bool Data30Mins()
+        {
+            return RainfallPrediction.Count >= 6;
+        }
+
+        /// <summary>
+        /// Indicates if rainfall predictions are known beyond 90 minutes in the future
+        /// </summary>
+        /// <returns>True if prediction information time > 90 min </returns>
+        public bool Data90Mins()
+        {
+            return RainfallPrediction.Count >= 18;
+        }
+
         private string FetchRawInner(double lat, double lon, TimeSpan timeout)
         {
             try
@@ -84,7 +131,7 @@ namespace BuienRadar
 
                 Debug.WriteLine("Fetching buienradar data from url '" + urlAddress + "\'");
                 var request = (HttpWebRequest) WebRequest.Create(urlAddress);
-                request.Timeout = (int)timeout.TotalMilliseconds;
+                request.Timeout = (int) timeout.TotalMilliseconds;
                 var response = (HttpWebResponse) request.GetResponse();
 
                 if (response.StatusCode != HttpStatusCode.OK)
@@ -120,12 +167,8 @@ namespace BuienRadar
         private void PrunePrediction()
         {
             foreach (var timeRain in RainfallPrediction.ToArray())
-            {
                 if (timeRain.Time + TimeSpan.FromMinutes(5) <= DateTime.Now)
-                {
                     RainfallPrediction.Remove(timeRain);
-                }
-            }
         }
 
         /// <summary>

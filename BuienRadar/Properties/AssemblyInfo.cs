@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("BuienRadar")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("None")]
 [assembly: AssemblyProduct("BuienRadar")]
-[assembly: AssemblyCopyright("Copyright © Thijs Elenbaas 2016")]
+[assembly: AssemblyCopyright("Copyright © Thijs Elenbaas 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuienRadar", "BuienRadar\BuienRadar.csproj", "{A9E7D4AD-37DD-49EC-A126-0053DD063266}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buienradar", "BuienRadar\Buienradar.csproj", "{A9E7D4AD-37DD-49EC-A126-0053DD063266}"
 	ProjectSection(ProjectDependencies) = postProject
 		{EC6A4F5A-788F-4A0D-ABE5-95A1C6A89685} = {EC6A4F5A-788F-4A0D-ABE5-95A1C6A89685}
 	EndProjectSection

@@ -68,8 +68,8 @@
     <Compile Include="Utils\NetworkUtils.cs" />
     <Compile Include="Utils\Statistics.cs" />
     <Compile Include="Utils\StringUtils.cs" />
-    <Compile Include="WeersInformatie.cs" />
-    <Compile Include="WeersInformatieToText.cs" />
+    <Compile Include="WeatherInformation.cs" />
+    <Compile Include="WeatherInformationToText.cs" />
     <Compile Include="XMLmap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

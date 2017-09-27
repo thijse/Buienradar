@@ -21,10 +21,8 @@ namespace Buienradar.Utils
             var stopWatch = new Stopwatch();
             stopWatch.Start();
             // Do network related stuff
-            while (!Connected() && (stopWatch.Elapsed < timeout - TimeSpan.FromSeconds(30)))
-            {
+            while (!Connected() && stopWatch.Elapsed < timeout - TimeSpan.FromSeconds(30))
                 Thread.Sleep(1000);
-            }
             return Connected();
         }
 
