@@ -1,4 +1,5 @@
 ﻿#region BuienRadarAPI - MIT - (c) 2017 Thijs Elenbaas.
+
 /*
   DS Photosorter - tool that processes photos captured with Synology DS Photo
 
@@ -15,7 +16,9 @@
 
   Copyright 2017 - Thijs Elenbaas
 */
+
 #endregion
+
 using System;
 
 namespace Buienradar.Utils
@@ -25,7 +28,7 @@ namespace Buienradar.Utils
         public static T GetMinValue()
         {
             object MinValue = default(T);
-            var typeCode = Type.GetTypeCode(typeof(T));
+            var typeCode = Type.GetTypeCode(typeof (T));
             switch (typeCode)
             {
                 case TypeCode.Byte:
@@ -78,7 +81,7 @@ namespace Buienradar.Utils
         public static T GetMaxValue()
         {
             object maxValue = default(T);
-            var typeCode = Type.GetTypeCode(typeof(T));
+            var typeCode = Type.GetTypeCode(typeof (T));
             switch (typeCode)
             {
                 case TypeCode.Byte:

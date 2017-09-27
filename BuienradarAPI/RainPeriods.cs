@@ -1,4 +1,5 @@
 ﻿#region BuienRadarAPI - MIT - (c) 2017 Thijs Elenbaas.
+
 /*
   DS Photosorter - tool that processes photos captured with Synology DS Photo
 
@@ -15,6 +16,7 @@
 
   Copyright 2017 - Thijs Elenbaas
 */
+
 #endregion
 
 using System;
@@ -28,7 +30,7 @@ namespace Buienradar
     {
         public DateTime StartTime { get; set; }
 
-        public TimeSpan Duration => TimeSpan.FromMinutes(5 * Count);
+        public TimeSpan Duration => TimeSpan.FromMinutes(5*Count);
 
         public DateTime EndTime => StartTime + Duration;
     }

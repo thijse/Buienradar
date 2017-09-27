@@ -1,4 +1,5 @@
 ﻿#region BuienRadarAPI - MIT - (c) 2017 Thijs Elenbaas.
+
 /*
   DS Photosorter - tool that processes photos captured with Synology DS Photo
 
@@ -15,7 +16,9 @@
 
   Copyright 2017 - Thijs Elenbaas
 */
+
 #endregion
+
 using System;
 using System.Linq;
 
@@ -27,9 +30,9 @@ namespace Buienradar.Utils
         {
             var charCount = 0;
             var lines = text.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
-            return lines.GroupBy(w => (charCount += (charCount % max + w.Length + 1 >= max
-                                                        ? max - charCount % max
-                                                        : 0) + w.Length + 1) / max)
+            return lines.GroupBy(w => (charCount += (charCount%max + w.Length + 1 >= max
+                ? max - charCount%max
+                : 0) + w.Length + 1)/max)
                 .Select(g => string.Join(" ", g.ToArray()))
                 .ToArray();
         }

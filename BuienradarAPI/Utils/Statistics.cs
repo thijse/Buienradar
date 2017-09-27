@@ -1,4 +1,5 @@
 ﻿#region BuienRadarAPI - MIT - (c) 2017 Thijs Elenbaas.
+
 /*
   DS Photosorter - tool that processes photos captured with Synology DS Photo
 
@@ -15,7 +16,9 @@
 
   Copyright 2017 - Thijs Elenbaas
 */
+
 #endregion
+
 using System;
 using System.Collections.Generic;
 
@@ -69,7 +72,7 @@ namespace Buienradar.Utils
             double sum = 0;
             foreach (var value in this)
                 sum += value;
-            return (float) sum / Count;
+            return (float) sum/Count;
         }
 
         /// <summary>
@@ -83,19 +86,19 @@ namespace Buienradar.Utils
             double summedError = 0;
             foreach (var value in this)
                 summedError += Math.Pow(value - avg, 2);
-            return (float) Math.Sqrt(summedError / Count);
+            return (float) Math.Sqrt(summedError/Count);
         }
 
         public double Median()
         {
-            return this[Count / 2];
+            return this[Count/2];
         }
 
         public double SortedMedian()
         {
             List<double> sortedArray = this;
             sortedArray.Sort();
-            return sortedArray[sortedArray.Count / 2];
+            return sortedArray[sortedArray.Count/2];
         }
 
 
