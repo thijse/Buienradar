@@ -47,9 +47,9 @@ The buienradar site says this about usage of their data:
 
 "Buienradar provides free weather data available to individuals and businesses (website / intranet). The use of the weather data below is only allowed for non-commercial purposes, and referencing the source is mandatory. The use for mobile applications or commercial purposes requires permission from Buienradar, see  the disclaimer"
 
-Request permission for using the weather data here: [https://www.buienradar.nl/overbuienradar/contact]
+Request permission for using the weather data here: https://www.buienradar.nl/overbuienradar/contact
 
-[source: https://www.buienradar.nl/overbuienradar/gratis-weerdata]
+source: https://www.buienradar.nl/overbuienradar/gratis-weerdata
 
 The BuienRadar API on this site is provided under MIT License, Copyright © 2017.
 
