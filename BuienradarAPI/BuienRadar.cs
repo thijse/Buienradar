@@ -1,4 +1,5 @@
 ﻿#region BuienRadarAPI - MIT - (c) 2017 Thijs Elenbaas.
+
 /*
   DS Photosorter - tool that processes photos captured with Synology DS Photo
 
@@ -15,6 +16,7 @@
 
   Copyright 2017 - Thijs Elenbaas
 */
+
 #endregion
 
 using System;
@@ -37,7 +39,7 @@ namespace BuienRadar
 
         public double RainfallIndexmm => RainfallIndex == 0
             ? 0
-            : Math.Pow(10.0, (RainfallIndex - 108.8805792) / 73.67120307);
+            : Math.Pow(10.0, (RainfallIndex - 108.8805792)/73.67120307);
     }
 
     public class BuienRadar
@@ -94,17 +96,17 @@ namespace BuienRadar
 
 
         /// <summary>
-        /// Returns how far in the future the rainfall is predicted
+        ///     Returns how far in the future the rainfall is predicted
         /// </summary>
         /// <returns>Timespan of prediction information</returns>
         public TimeSpan DataUntil()
         {
             PrunePrediction();
-            return TimeSpan.FromMinutes(5 * RainfallPrediction.Count);
+            return TimeSpan.FromMinutes(5*RainfallPrediction.Count);
         }
 
         /// <summary>
-        /// Indicates if rainfall predictions are known beyond 30 minutes in the future
+        ///     Indicates if rainfall predictions are known beyond 30 minutes in the future
         /// </summary>
         /// <returns>True if prediction information time > 30 min </returns>
         public bool Data30Mins()
@@ -113,7 +115,7 @@ namespace BuienRadar
         }
 
         /// <summary>
-        /// Indicates if rainfall predictions are known beyond 90 minutes in the future
+        ///     Indicates if rainfall predictions are known beyond 90 minutes in the future
         /// </summary>
         /// <returns>True if prediction information time > 90 min </returns>
         public bool Data90Mins()

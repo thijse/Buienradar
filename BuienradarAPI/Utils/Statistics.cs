@@ -1,4 +1,25 @@
-﻿using System;
+﻿#region BuienRadarAPI - MIT - (c) 2017 Thijs Elenbaas.
+
+/*
+  DS Photosorter - tool that processes photos captured with Synology DS Photo
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  Copyright 2017 - Thijs Elenbaas
+*/
+
+#endregion
+
+using System;
 using System.Collections.Generic;
 
 namespace Buienradar.Utils
@@ -51,7 +72,7 @@ namespace Buienradar.Utils
             double sum = 0;
             foreach (var value in this)
                 sum += value;
-            return (float) sum / Count;
+            return (float) sum/Count;
         }
 
         /// <summary>
@@ -65,19 +86,19 @@ namespace Buienradar.Utils
             double summedError = 0;
             foreach (var value in this)
                 summedError += Math.Pow(value - avg, 2);
-            return (float) Math.Sqrt(summedError / Count);
+            return (float) Math.Sqrt(summedError/Count);
         }
 
         public double Median()
         {
-            return this[Count / 2];
+            return this[Count/2];
         }
 
         public double SortedMedian()
         {
             List<double> sortedArray = this;
             sortedArray.Sort();
-            return sortedArray[sortedArray.Count / 2];
+            return sortedArray[sortedArray.Count/2];
         }
 
 
