@@ -11,6 +11,8 @@ To demonstrate the usage of the API, a minimal application has been included tha
 
 Please note that when using buienradar data, ask permission here: https://www.buienradar.nl/overbuienradar/contact and please provide link to buienradar.nl in your application. Also note that the while the code provided here is open source, the data MIT 
 
+![Screenshot of Buienradar applicaton](Images/BuienRadar.png)
+
 ## Features
 
 * Fetching of precipitation data and weatherstation information
