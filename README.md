@@ -9,6 +9,8 @@ BuienRadar API is an API that fetches raw rain precipitation through the free Bu
 
 To demonstrate the usage of the API, a minimal application has been included that fetches the data, based on any given location (using the Google location service)
 
+Please note that when using buienradar data, ask permission here: https://www.buienradar.nl/overbuienradar/contact and please provide link to buienradar.nl in your application. Also note that the while the code provided here is open source, the data MIT 
+
 ## Features
 
 * Fetching of precipitation data and weatherstation information
@@ -39,5 +41,13 @@ This Application is not available through Nuget can only be downloaded from GitH
 
 ## Copyright
 
-BuienRadar API is provided Copyright © 2017 under MIT License.
+The buienradar site says this about usage of their data:
+
+"Buienradar provides free weather data available to individuals and businesses (website / intranet). The use of the weather data below is only allowed for non-commercial purposes, and referencing the source is mandatory. The use for mobile applications or commercial purposes requires permission from Buienradar, see  the disclaimer"
+
+Request permission for using the weather data here: [https://www.buienradar.nl/overbuienradar/contact]
+
+[source: https://www.buienradar.nl/overbuienradar/gratis-weerdata]
+
+The BuienRadar API on this site is provided under MIT License, Copyright © 2017.
 
